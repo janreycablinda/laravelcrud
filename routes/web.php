@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ManageLocationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,7 +27,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('dashboard', DashboardController::class);
 
     //product
-    Route::resource('product', DashboardController::class);
+    Route::resource('product', ProductController::class);
+
+    //product
+    Route::resource('manage_location', ManageLocationController::class);
+
+    //users
+    Route::resource('users', UserController::class);
 
     // profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
